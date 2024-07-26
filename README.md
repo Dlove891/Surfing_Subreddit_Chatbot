@@ -10,6 +10,7 @@ This Surf ChatBot is a full-stack web application that provides surfing-related 
 
 Visit the deployed application @ https://surf-chatbot-d389c8652967.herokuapp.com/
 Enter your surfing-related question in the input field and click "Get your response" to receive an AI-generated answer.
+**Please give the bot 20 seconds after submitting the first question to boot up, then try again!**
 
 ## Features
 
