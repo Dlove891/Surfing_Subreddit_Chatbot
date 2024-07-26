@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, initial-scale=1.0">
+  <title>Surf ChatBot</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      font-family: Arial, sans-serif;
+      color: #fff;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      overflow-y: auto;
+    }
+    .container {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      max-width: 800px;
+      margin: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    h1 {
+      color: #fff;
+      margin-bottom: 20px;
+      font-size: 2em;
+    }
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+    button {
+      background-color: #0072ff;
+      color: white;
+      padding: 10px 20px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #005bb5;
+    }
+    .response {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #00c6ff;
+    }
+    .example-questions, .memo {
+      margin-top: 30px;
+      text-align: left;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+    }
+    .example-questions h2, .memo h2 {
+      color: #fff;
+      font-size: 1.5em;
+    }
+    .example-questions ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .example-questions li {
+      margin: 10px 0;
+      font-size: 1em;
+    }
+    .wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 150px;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .wave svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px;
+        margin: 10px;
+      }
+
+      input[type="text"] {
+        width: 90%;
+        font-size: 1em;
+      }
+
+      button {
+        padding: 8px 16px;
+        font-size: 14px;
+      }
+
+      .wave {
+        height: 100px; /* Adjust as needed for smaller screens */
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.8em;
+      }
+
+      .wave {
+        height: 80px; /* Further adjust for very small screens */
+      }
+
+      input[type="text"] {
+        width: 100%;
+        font-size: 0.9em;
+      }
+
+      button {
+        padding: 6px 12px;
+        font-size: 12px;
+      }
+
+      .container {
+        margin: 5px;
+      }
+
+      .example-questions h2, .memo h2 {
+        font-size: 1.2em;
+      }
+
+      .example-questions li {
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Ask the Surf ChatBot</h1>
+    <form action="{{ url_for('predict')}}" method="post">
+        <input type="text" name="prompt" placeholder="Your question" required="required" /><br>
+        <button type="submit">Get your response</button>
+    </form>
+    <div class="response">
+      {{ prediction_text }}
+    </div>
+    
+    <div class="example-questions">
+      <h2>Example Questions</h2>
+      <ul>
+        <li>What are some tips for beginners in surfing?</li>
+        <li>Can you explain the difference between a shortboard and a longboard?</li>
+        <li>What safety measures should I take before going surfing?</li>
+        <li>How do I choose the right wetsuit for surfing?</li>
+        <li>What are the best surfing spots for beginners?</li>
+      </ul>
+    </div>
+    
+    <div class="memo">
+      <h2>About This ChatBot</h2>
+      <p>This surfing chatbot is trained on the top 1000 Reddit posts from r/surfing and their corresponding comments. It is designed to provide useful and relevant information on various surfing topics based on a rich dataset of community discussions and expert advice.</p>
+    </div>
+  </div>
+  <div class="wave">
+    <!-- Wave SVG -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path fill="#0072ff" d="M0,0 C150,100 350,0 500,0 C650,0 850,100 1000,0 C1150,-100 1350,0 1500,0 L1500,120 L0,120 Z"></path>
+    </svg>
+  </div>
+</body>
+</html>

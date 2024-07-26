@@ -1,0 +1,5 @@
+flask
+requests
+gunicorn
+numpy
+transformers==4.28.0
