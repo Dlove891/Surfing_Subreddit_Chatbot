@@ -4,13 +4,14 @@
 
 ## Overview
 
+**Please give the bot 20 seconds after submitting the first question to access the HF API properly, then try again!**
+
 This Surf ChatBot is a full-stack web application that provides surfing-related information and answers questions about surfing. It uses a fine-tuned GPT-2 model trained on data from the r/surfing subreddit to generate responses to user queries. It is made to be replicated with any subreddit to create your own projects!
 
 ## Usage
 
 Visit the deployed application @ https://surf-chatbot-d389c8652967.herokuapp.com/
 Enter your surfing-related question in the input field and click "Get your response" to receive an AI-generated answer.
-**Please give the bot 20 seconds after submitting the first question to boot up, then try again!**
 
 ## Features
 
